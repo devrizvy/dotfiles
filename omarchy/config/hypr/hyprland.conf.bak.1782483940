@@ -1,0 +1,46 @@
+# Learn how to configure Hyprland: https://wiki.hyprland.org/Configuring/
+
+env = XCURSOR_THEME,Bibata-Modern-Ice
+env = HYPRCURSOR_THEME,Bibata-Modern-Ice
+env = XCURSOR_SIZE,18
+env = HYPRCURSOR_SIZE,18
+
+# force apply on startup
+# exec-once = hyprctl setcursor Vimix-cursors 16
+# Use defaults Omarchy defaults (but don't edit these directly!)
+source = ~/.local/share/omarchy/default/hypr/autostart.conf
+source = ~/.local/share/omarchy/default/hypr/bindings/media.conf
+source = ~/.local/share/omarchy/default/hypr/bindings/clipboard.conf
+source = ~/.local/share/omarchy/default/hypr/bindings/tiling-v2.conf
+source = ~/.local/share/omarchy/default/hypr/bindings/utilities.conf
+source = ~/.local/share/omarchy/default/hypr/envs.conf
+source = ~/.local/share/omarchy/default/hypr/looknfeel.conf
+source = ~/.local/share/omarchy/default/hypr/input.conf
+source = ~/.local/share/omarchy/default/hypr/windows.conf
+source = ~/.config/omarchy/current/theme/hyprland.conf
+
+# Change your own setup in these files (and overwrite any settings from defaults!)
+source = ~/.config/hypr/monitors.conf
+source = ~/.config/hypr/input.conf
+source = ~/.config/hypr/bindings.conf
+source = ~/.config/hypr/looknfeel.conf
+source = ~/.config/hypr/autostart.conf
+
+# Add any other personal Hyprland configuration below
+# windowrule = workspace 5, match:class qemu
+
+
+monitor=HDMI-A-1,1920x1080@100.00,0x0,1.00,transform,1
+monitor=DP-3,1920x1080@143.98,1080x416,1.00
+
+exec-once = hyprpaper
+
+
+env = XCURSOR_THEME,Bibata-Modern-Ice
+env = HYPRCURSOR_THEME,Bibata-Modern-Ice
+env = XCURSOR_SIZE,18
+env = HYPRCURSOR_SIZE,18
+
+exec-once = sleep 2 && hyprctl setcursor Bibata-Modern-Ice 18
+# Toggle config flags dynamically
+source = ~/.local/state/omarchy/toggles/hypr/*.conf
