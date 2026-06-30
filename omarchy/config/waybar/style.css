@@ -1,0 +1,321 @@
+@import "../omarchy/current/theme/waybar.css";
+
+/* ── Reset ────────────────────────────────────────────────── */
+
+* {
+  background-color: transparent;
+  color: @foreground;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  font-family: 'JetBrainsMono Nerd Font';
+  font-size: 12px;
+}
+
+label {
+  color: @foreground;
+  opacity: 1;
+  min-width: 0;
+  min-height: 0;
+}
+
+window#waybar {
+  background-color: @background;
+}
+
+.modules-left  { margin-left: 0; }
+.modules-right { margin-right: 0; }
+
+
+/* ── Omarchy logo ─────────────────────────────────────────── */
+
+#custom-omarchy {
+  padding: 0 12px;
+  font-size: 13px;
+  font-weight: bold;
+  color: @foreground;
+}
+
+#custom-omarchy:hover {
+  background-color: alpha(@foreground, 0.06);
+}
+
+
+/* ── Workspaces ───────────────────────────────────────────── */
+
+#workspaces {
+  padding: 0 4px;
+}
+
+#workspaces button {
+  all: initial;
+  font-family: 'JetBrainsMono Nerd Font';
+  font-size: 11px;
+  margin: 3px 2px;
+  padding: 0 10px;
+  min-width: 16px;
+  background-color: alpha(@background, 0.4);
+  border: 1px solid alpha(@foreground, 0.08);
+  border-radius: 100px;
+  color: alpha(@foreground, 0.5);
+  transition: all 0.2s ease-in-out;
+}
+
+#workspaces button.active {
+  background-color: alpha(@foreground, 0.15);
+  border: 1px solid alpha(@foreground, 0.12);
+  color: @foreground;
+  font-weight: bold;
+}
+
+#workspaces button.empty {
+  background-color: transparent;
+  border: 1px solid transparent;
+  color: alpha(@foreground, 0.18);
+}
+
+#workspaces button:hover {
+  background-color: alpha(@foreground, 0.08);
+  border: 1px solid alpha(@foreground, 0.15);
+}
+
+
+/* ── Clock & GitHub ─────────────────────────────────────────── */
+
+#clock, #custom-github {
+  font-family: 'JetBrainsMono Nerd Font';
+  font-size: 12px;
+  font-weight: 500;
+  padding: 0 14px;
+  margin: 3px 2px;
+  background-color: alpha(@background, 0.4);
+  border: 1px solid alpha(@foreground, 0.08);
+  border-radius: 100px;
+  color: alpha(@foreground, 0.9);
+  letter-spacing: 0.02em;
+  transition: all 0.2s ease-in-out;
+}
+
+#clock:hover, #custom-github:hover {
+  background-color: alpha(@foreground, 0.08);
+  border: 1px solid alpha(@foreground, 0.15);
+  color: @foreground;
+}
+
+
+/* ── Hardware (CPU, GPU, RAM, Network) ─────────────────────────── */
+
+#cpu, #custom-gpu, #memory, #network {
+  font-family: 'JetBrainsMono Nerd Font';
+  font-size: 11px;
+  margin: 3px 2px;
+  padding: 0 10px;
+  min-width: 16px;
+  background-color: alpha(@background, 0.4);
+  border: 1px solid alpha(@foreground, 0.08);
+  border-radius: 100px;
+  color: alpha(@foreground, 0.7);
+  transition: all 0.2s ease-in-out;
+}
+
+#cpu:hover, #custom-gpu:hover, #memory:hover, #network:hover {
+  background-color: alpha(@foreground, 0.08);
+  border: 1px solid alpha(@foreground, 0.15);
+  color: @foreground;
+}
+
+#cpu.warning, #custom-gpu.warning, #memory.warning {
+  color: @warning;
+}
+
+#cpu.critical, #custom-gpu.critical, #memory.critical {
+  color: @error;
+}
+
+/* ── Vertical Mode Overrides (Leftbar) ────────────────────── */
+
+.leftbar #workspaces button {
+  padding: 8px 0;
+  margin: 4px 6px;
+  min-width: 22px;
+  border-radius: 12px;
+}
+
+.leftbar #cpu, .leftbar #custom-gpu, .leftbar #memory, .leftbar #network, .leftbar #tray, .leftbar #custom-expand-icon {
+  padding: 10px 0;
+  margin: 4px 6px;
+  min-width: 22px;
+  border-radius: 12px;
+}
+
+
+
+
+/* ── Nyan cat ─────────────────────────────────────────────── */
+
+#custom-nyancat {
+  font-family: 'JetBrainsMono Nerd Font';
+  font-size: 14px;
+  margin: 3px 6px;
+  background-color: transparent;
+  border: none;
+  color: alpha(@foreground, 0.9);
+  animation: nyan-bob 0.35s ease-in-out infinite alternate;
+  transition: all 0.2s ease-in-out;
+}
+
+#custom-nyancat:hover {
+  color: @foreground;
+}
+
+@keyframes nyan-bob {
+  from { margin-bottom: 0px; }
+  to   { margin-bottom: 3px; }
+}
+
+
+/* ── Bluetooth ────────────────────────────────────────────── */
+
+#bluetooth,
+label#bluetooth {
+  font-size: 14px;
+  padding: 0 10px;
+  color: @foreground;
+  min-width: 14px;
+  opacity: 1;
+}
+
+#bluetooth:hover            { background-color: alpha(@foreground, 0.06); }
+#bluetooth.connected,
+label#bluetooth.connected   { color: @foreground; opacity: 1; }
+#bluetooth.disabled,
+label#bluetooth.disabled    { color: alpha(@foreground, 0.3); }
+#bluetooth.off,
+label#bluetooth.off         { color: alpha(@foreground, 0.3); }
+
+
+/* ── Pulseaudio / PipeWire ────────────────────────────────── */
+
+#pulseaudio,
+label#pulseaudio {
+  font-size: 14px;
+  padding: 0 10px;
+  color: @foreground;
+  min-width: 14px;
+  opacity: 1;
+}
+
+#pulseaudio:hover          { background-color: alpha(@foreground, 0.06); }
+#pulseaudio.muted,
+label#pulseaudio.muted     { color: alpha(@foreground, 0.3); }
+
+
+/* ── Battery ──────────────────────────────────────────────── */
+
+#battery {
+  font-size: 11px;
+  padding: 0 10px;
+  color: @foreground;
+  min-width: 0;
+}
+
+#battery:hover    { background-color: alpha(@foreground, 0.06); }
+#battery.warning  { color: @warning; }
+#battery.critical { color: @error; }
+#battery.charging { color: @foreground; }
+
+
+/* ── Small indicators ─────────────────────────────────────── */
+
+#custom-update,
+#custom-voxtype,
+#custom-screenrecording-indicator,
+#custom-idle-indicator,
+#custom-notification-silencing-indicator {
+  padding: 0 5px;
+  font-size: 10px;
+  color: alpha(@foreground, 0.5);
+  min-width: 12px;
+  margin: 0;
+}
+
+#custom-screenrecording-indicator.active,
+#custom-idle-indicator.active,
+#custom-notification-silencing-indicator.active {
+  color: #a55555;
+}
+
+#custom-voxtype.recording    { color: #a55555; }
+#custom-voxtype.transcribing { color: alpha(@foreground, 0.7); }
+
+
+/* ── Tray ─────────────────────────────────────────────────── */
+
+#custom-expand-icon {
+  font-family: 'JetBrainsMono Nerd Font';
+  font-size: 14px;
+  margin: 3px 2px;
+  padding: 0 12px;
+  background-color: alpha(@background, 0.4);
+  border: 1px solid alpha(@foreground, 0.08);
+  border-radius: 100px;
+  color: alpha(@foreground, 0.8);
+  transition: all 0.2s ease-in-out;
+}
+
+#custom-expand-icon:hover {
+  background-color: alpha(@foreground, 0.08);
+  border: 1px solid alpha(@foreground, 0.15);
+  color: @foreground;
+}
+
+#tray {
+  margin: 3px 2px;
+  padding: 0 14px;
+  background-color: alpha(@background, 0.4);
+  border: 1px solid alpha(@foreground, 0.08);
+  border-radius: 100px;
+  transition: all 0.2s ease-in-out;
+}
+
+#tray:hover {
+  background-color: alpha(@foreground, 0.08);
+  border: 1px solid alpha(@foreground, 0.15);
+}
+
+#tray > .passive         { -gtk-icon-effect: dim; }
+#tray > .needs-attention { -gtk-icon-effect: highlight; }
+
+
+/* ── Tooltip ──────────────────────────────────────────────── */
+
+tooltip {
+  background-color: @background;
+  border: 1px solid alpha(@foreground, 0.12);
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 11px;
+  color: @foreground;
+}
+
+tooltip label { color: @foreground; }
+
+
+/* ── Utility ──────────────────────────────────────────────── */
+
+.hidden {
+  opacity: 0;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+}
+#custom-weather {
+  margin-left: 7.5px;
+  margin-right: 7.5px;
+}
+
+#custom-weather.unavailable {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
